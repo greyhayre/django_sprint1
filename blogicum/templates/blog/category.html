@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} {{posts.category}} {% endblock %}
+
+{% block content %}
+<div class = "container py-5">
+    <article>
+        <ul>
+            <h1>Публикации в категории - {{category_posts}}</h1>
+        </ul>
+    </article>
+</div>
+{% endblock %}
