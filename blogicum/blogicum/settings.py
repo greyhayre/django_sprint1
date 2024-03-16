@@ -106,9 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'ru-ru' # Русская локаль
+LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC' # Установка часового пояса почему то выдает ошибку
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
