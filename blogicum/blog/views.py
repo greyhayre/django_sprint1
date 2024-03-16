@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from typing import Union
+from django.http import Http404 
 
 posts: list[dict[str, Union[int, str]]] = [
     {
@@ -47,13 +48,17 @@ posts: list[dict[str, Union[int, str]]] = [
 
 def index(request):
     template_name = 'blog/index.html'
-    context = {'post': reversed(posts), }
+    context = {'posts': reversed(posts), } # замена названия ради цикла в индексе
     return render(request, template_name, context)
+
+posts_dict = {post['id']: post for post in posts} # доп ид?
 
 
 def post_detail(request, id):
+    if id not in posts_dict: # проверка на кривой id из try exept
+        raise Http404
     template_name = 'blog/detail.html'
-    context = {'post': posts[id], }
+    context = {'post': posts_dict[id], } # берем по ид из нового списка
     return render(request, template_name, context)
 
 

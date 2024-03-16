@@ -3,22 +3,22 @@
 {% block content %}
 <h1>Лента записей</h1>
 <div class="navbar-brand">
-  {% for posts in post %}
+  {% for post in posts %} <!--замена местами и ниже смена имен-->
   <hr>
   <div class="navbar-brand" id="navbarNav" >
     <ul>
       <li class="nav-item">
-      Место: {{posts.location}}
+      Место: {{post.location}}
       </li>
       <li class="nav-item">
-      Дата: {{posts.date}}
+      Дата: {{post.date}}
       </li>
       <li class="nav-item">
-      Категория: <a class="active" href="{% url 'blog:category_posts' posts.category %}"><ins>{{posts.category}}</ins></a>
+      Категория: <a class="active" href="{% url 'blog:category_posts' post.category %}"><ins>{{post.category}}</ins></a>
       </li>
     </ul>
-    {{posts.text|truncatewords:10}}
-    <a class="nav-link" href="{% url 'blog:post_detail' posts.id %}"><ins>Читать полный текст</ins></a>
+    {{post.text|truncatewords:10}}
+    <a class="nav-link" href="{% url 'blog:post_detail' post.id %}"><ins>Читать полный текст</ins></a>
 
     {% endfor %} 
   </div>
